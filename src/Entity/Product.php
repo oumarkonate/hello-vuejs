@@ -14,22 +14,32 @@ class Product
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    public $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    public $name;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $price;
+    public $price;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    public $description;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    public $type;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    public $amount;
 
     /**
      * @return int
@@ -37,18 +47,6 @@ class Product
     public function getId(): int
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     *
-     * @return Product
-     */
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -109,5 +107,37 @@ class Product
         $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param mixed $amount
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
     }
 }
